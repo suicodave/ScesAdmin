@@ -1,0 +1,25 @@
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode = "over" opened = "true" >
+    <ul>
+      <li>
+        <a routerLink = "/home">Home</a>
+        
+      </li>
+      <li>
+        <a routerLink = "/school_settings">School Settings</a>
+        
+      </li>
+      <li>
+        <a routerLink = "/administrators"> Administrators</a>
+       
+      </li>
+      
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button (click)="sidenav.toggle()" >Close</button>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
