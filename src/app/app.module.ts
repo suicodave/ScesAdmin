@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { SchoolSettingsComponent } from './school-settings/school-settings.component';
 import { AdministratorsComponent } from './administrators/administrators.component';
 import { IndexComponent } from './index/index.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SchoolYearComponent } from './school-settings/school-year/school-year.component';
+import { CollegeComponent } from './school-settings/college/college.component';
 
 
 
@@ -21,14 +24,20 @@ import { IndexComponent } from './index/index.component';
     HomeComponent,
     SchoolSettingsComponent,
     AdministratorsComponent,
-    IndexComponent
+    IndexComponent,
+    SchoolYearComponent,
+    CollegeComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MyMaterialModuleModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

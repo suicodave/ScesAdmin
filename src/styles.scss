@@ -1,7 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import "~@angular/material/theming";
+@import "~font-awesome/css/font-awesome.min.css";
 body{
     margin:0;
+    font-family: Roboto;
 }
 
+.active {
+    li{
+        background: blue;
+        color: white;
+        @include mat-elevation(10);
+    }
+}
+
+
+hr{
+    margin-top: 35px;
+    opacity : 0.25 !important ;
+}
+
+mat-toolbar{
+    @include mat-elevation(7);
+}
+
+.tooltip{
+    font-size:16px;
+}
+
+
+.currentSY{
+    text-align: center;
+    padding:35px;
+    box-sizing: border-box;
+    font-size:25px !important ;
+    font-weight: 400;
+    line-height: 5;
+}
+
+.mat-paginator-container{
+    padding-bottom: 15px !important;
+}
+
+.widget-quickview{
+    margin-bottom: 65px;
+}
+
+.widget-quickview-title {
+    margin-top: 10px !important ;
+    margin-bottom: 20px !important ;
+    font-size: 19px;
+}

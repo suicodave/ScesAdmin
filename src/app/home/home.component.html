@@ -1,0 +1,145 @@
+
+
+
+
+<!-- School Settings -->
+<div class="widget-quickview">
+    <p class = "widget-quickview-title" >
+            School Settings
+    </p>
+
+    <div fxLayout.lg='row' fxLayout.md='row' fxLayoutAlign.gt-md="space-evenly start"  fxLayoutGap="75px" fxLayoutGap.sm="25px" fxLayoutGap.xs="25px"   fxLayout = "column"  class = "widget-quickview-content" >
+            
+        
+        <mat-card fxFlex = "30%"  >
+            <mat-card-header>
+                Current School Year
+            </mat-card-header>
+            <mat-card-content class = "currentSY" >
+                2017-2018
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card fxFlex = "30%" matTooltip = "Recently Added Departments" matTooltipPosition = "above" matTooltipClass = "tooltip" >
+            <mat-card-header>
+                Departments
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list  role="list">
+
+                    <div  *ngFor = "let a of [1,2,3,4] ;  last as isLast " >
+                        
+                        <mat-list-item  role="listitem">Item {{a}}</mat-list-item>
+                        <mat-divider *ngIf = "!isLast" ></mat-divider>
+                    </div>
+                    
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+        
+        <mat-card fxFlex = "30%" matTooltip = "Recently Added Colleges" matTooltipPosition = "above" matTooltipClass = "tooltip" >
+            <mat-card-header>
+                Colleges
+
+            </mat-card-header>
+            <mat-card-content fxLayout ='column' fxLayout.md='row' fxLayoutAlign="center center" >
+                
+                <mat-spinner diameter = "50" ></mat-spinner>
+                
+            </mat-card-content>
+        </mat-card>
+        
+    
+    
+    </div>
+    <hr>
+</div>
+
+
+
+<!-- Administrators -->
+<div class="widget-quickview">
+        <p class = "widget-quickview-title" >
+                Administrators
+        </p>
+    
+        <div fxLayout.lg='row' fxLayout.md='row' fxLayoutAlign="space-evenly"  fxLayoutGap="25px" fxLayoutGap.sm="25px" fxLayoutGap.xs="25px"   fxLayout = "column"  class = "widget-quickview-content" >
+                
+            
+            <mat-card fxFlex = "30%"  >
+                <mat-card-header>
+                    Recently Added Users
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-list role="list">
+    
+                        <div  *ngFor = "let a of [1,2,3,4] ;  last as isLast " >
+                            <mat-list-item role="listitem">Item {{a}}</mat-list-item>
+                            <mat-divider *ngIf = "!isLast" ></mat-divider>
+                        </div>
+                        
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+    
+    
+            <mat-card fxFlex = "30%" matTooltip = "Recent Root User" matTooltipPosition = "above" matTooltipClass = "tooltip" >
+                <mat-card-header>
+                    Root
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-list role="list">
+    
+                        <div  *ngFor = "let a of [1,2,3,4] ;  last as isLast " >
+                            <mat-list-item role="listitem">Item {{a}}</mat-list-item>
+                            <mat-divider *ngIf = "!isLast" ></mat-divider>
+                        </div>
+                        
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+            
+            <mat-card fxFlex = "30%" matTooltip = "Recent Registrar User" matTooltipPosition = "above" matTooltipClass = "tooltip" >
+                <mat-card-header>
+                    Registrar
+                </mat-card-header>
+
+                <mat-card-content>
+
+                    <mat-list role="list">
+    
+                        <div  *ngFor = "let a of [1,2,3,4] ;  last as isLast " >
+                            <mat-list-item role="listitem">Item {{a}}</mat-list-item>
+                            <mat-divider *ngIf = "!isLast" ></mat-divider>
+                        </div>
+                        
+                    </mat-list>
+
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card fxFlex = "30%" matTooltip = "Recent Comelec User " matTooltipPosition = "above" matTooltipClass = "tooltip" >
+                    <mat-card-header>
+                        Comelec
+                    </mat-card-header>
+    
+                    <mat-card-content>
+    
+                        <mat-list role="list">
+        
+                            <div  *ngFor = "let a of [1,2,3,4] ;  last as isLast " >
+                                <mat-list-item role="listitem">Item {{a}}</mat-list-item>
+                                <mat-divider *ngIf = "!isLast" ></mat-divider>
+                            </div>
+                            
+                        </mat-list>
+    
+                    </mat-card-content>
+                </mat-card>
+            
+        
+        
+        </div>
+        <hr>
+    </div>
