@@ -1,3 +1,17 @@
-auth works
 
-<button (click)="authenticate()" >Login</button>
+<form #form="ngForm" (ngSubmit)="authenticate(form,validateEmail.invalid)" >
+    <mat-form-field>
+        <input matInput type="email" ngModel name="email" #validateEmail="ngModel"  placeholder="Email" email="true"  id="">
+        <mat-error *ngIf = "validateEmail.invalid"  >Invalid Email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" name="password" placeholder="Password" ngModel id="">
+    </mat-form-field>
+
+    <button mat-raised-button color = "primary" type="submit" >Sign In</button>
+
+</form>
+
+<p *ngIf="token.length" >
+    Token : {{token | json }}
+</p>

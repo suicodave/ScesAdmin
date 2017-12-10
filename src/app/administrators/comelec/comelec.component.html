@@ -1,0 +1,54 @@
+<div class="widget-quickview">
+    
+  <p class = "widget-quickview-title" >
+    Comelec
+  </p>
+
+    
+  <div fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign.gt-sm="space-between center" fxLayoutGap="15px" fxLayoutGap.gt-sm="35px">
+    
+    <div fxFlex="25%" fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+      <button  mat-icon-button matTooltip = "Add Comelec" matTooltipPosition = "right" matTooltipClass = "tooltip" >
+          <i class="fa fa-plus fa-2x" aria-hidden="true"  ></i>
+      </button>
+      <mat-checkbox (change) = "toggleShowDeleted()"  >
+        Show Deleted Comelec Users
+      </mat-checkbox>
+      
+    </div>
+    
+    <mat-form-field fxFlex="35%" >
+      <input type="search" matInput placeholder="Search" >
+    </mat-form-field>
+    <mat-paginator  length = "142" pageSize = "15" ></mat-paginator>
+
+  </div>
+  
+
+
+  
+  
+
+  <div fxLayout.gt-sm='row wrap '   fxLayoutAlign.gt-sm="space-between start"  fxLayoutGap.sm="25px" fxLayoutGap.xs="25px"   fxLayout = "column"  class = "widget-quickview-content" >
+
+    <mat-card fxFlex = "30%" matTooltipPosition = "above" class="grid-card" matTooltipClass = "tooltip" *ngFor="let a of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]" >
+      {{a}}
+
+    </mat-card>
+  </div>
+
+  <div *ngIf="enableDeleted" >
+    <hr>
+    <p>Deleted Comelec Users</p>
+
+    <div fxLayout.gt-sm='row wrap '   fxLayoutAlign.gt-sm="space-between start"  fxLayoutGap.sm="25px" fxLayoutGap.xs="25px"   fxLayout = "column"  class = "widget-quickview-content" >
+        
+      <mat-card fxFlex = "30%" matTooltipPosition = "above" class="grid-card" matTooltipClass = "tooltip" *ngFor="let a of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]" >
+        {{a}}
+  
+      </mat-card>
+    </div>
+  </div>
+  
+  <hr>
+</div>

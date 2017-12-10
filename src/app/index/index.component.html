@@ -33,10 +33,10 @@
     <mat-toolbar color = "primary" >
 
       <button mat-icon-button tabindex="-1" (click)="sidenav.toggle()"  >
-        <i class="fa fa-bars" aria-hidden="true"></i>
+        <i class="fa fa-bars " aria-hidden="true"></i>
       </button>
       <div class="spacer"></div>
-      <button mat-mini-fab tabindex="-1" [matMenuTriggerFor]="menu"  >
+      <button mat-mini-fab class="user-menu-btn" tabindex="-1" [matMenuTriggerFor]="menu"  >
         D
       </button>
       <mat-menu #menu="matMenu">

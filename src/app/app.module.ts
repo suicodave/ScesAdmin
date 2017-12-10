@@ -14,7 +14,12 @@ import { IndexComponent } from './index/index.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SchoolYearComponent } from './school-settings/school-year/school-year.component';
 import { CollegeComponent } from './school-settings/college/college.component';
-
+import { RootUserComponent } from './administrators/root-user/root-user.component';
+import { RegistrarComponent } from './administrators/registrar/registrar.component';
+import { ComelecComponent } from './administrators/comelec/comelec.component';
+import { YearLevelComponent } from './school-settings/year-level/year-level.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -27,6 +32,12 @@ import { CollegeComponent } from './school-settings/college/college.component';
     IndexComponent,
     SchoolYearComponent,
     CollegeComponent,
+    RootUserComponent,
+    RegistrarComponent,
+    ComelecComponent,
+    YearLevelComponent,
+    
+    
 
 
   ],
@@ -36,10 +47,14 @@ import { CollegeComponent } from './school-settings/college/college.component';
     BrowserAnimationsModule,
     MyMaterialModuleModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    
+
+    
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

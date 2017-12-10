@@ -1,4 +1,4 @@
-
+@import '~@angular/material/theming';
 mat-sidenav{
     
     width: 250px;
@@ -6,7 +6,7 @@ mat-sidenav{
         list-style-type: none;
         padding: 0;
         position: relative;
-        margin:0;
+        margin-bottom: 35px;
         
         & > li{
            
@@ -48,15 +48,25 @@ mat-sidenav{
 
 mat-sidenav-container{
     height: 100vh;
-
+  
     
 }
 
+mat-sidenav-content{
+    background-color: #e0e0e0 !important;
+}
 
 .index-container{
     padding:50px;
+    padding-top: 65px;
+    
 }
 
 .spacer{
     flex: 1 1 auto;
 }
+
+.user-menu-btn{
+   box-shadow: 0 0 0 !important  ;
+}
+

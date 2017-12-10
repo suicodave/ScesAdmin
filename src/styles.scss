@@ -5,6 +5,7 @@
 body{
     margin:0;
     font-family: Roboto;
+    
 }
 
 .active {
@@ -49,6 +50,14 @@ mat-toolbar{
 
 .widget-quickview-title {
     margin-top: 10px !important ;
-    margin-bottom: 20px !important ;
+    margin-bottom: 15px !important ;
     font-size: 19px;
+}
+
+.grid-card{
+    margin-bottom: 15px;
+}
+
+.mat-paginator{
+    background: none !important;
 }
