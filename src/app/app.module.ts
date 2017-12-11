@@ -20,6 +20,7 @@ import { ComelecComponent } from './administrators/comelec/comelec.component';
 import { YearLevelComponent } from './school-settings/year-level/year-level.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -36,8 +37,8 @@ import { AuthService } from './services/auth.service';
     RegistrarComponent,
     ComelecComponent,
     YearLevelComponent,
-    
-    
+
+
 
 
   ],
@@ -49,12 +50,12 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    
 
-    
+
+
 
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

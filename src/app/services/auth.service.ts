@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { apiUrl } from '../interfaces/global';
 import { } from '@angular/common/http/src/headers';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
   });
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router ) {
 
   }
 
@@ -26,6 +27,16 @@ export class AuthService {
     return this.http.post(apiUrl + 'users/login', body, {
       headers: this.headers,
     });
+  }
+
+  signOut() {
+    localStorage.removeItem('auth');
+    this.router.navigate(['auth']);
+
+  }
+
+  checkToken() {
+    return localStorage.getItem('auth');
   }
 
 }

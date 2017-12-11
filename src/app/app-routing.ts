@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { SchoolSettingsComponent } from './school-settings/school-settings.component';
 import { AdministratorsComponent } from './administrators/administrators.component';
 import { IndexComponent } from './index/index.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '', redirectTo: 'home' , pathMatch: 'full'
