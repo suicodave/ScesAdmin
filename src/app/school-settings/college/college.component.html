@@ -4,7 +4,7 @@
     </p>
 
  
-    <button mat-icon-button matTooltip = "Add College" matTooltipPosition = "right" matTooltipClass = "tooltip" >
+    <button mat-icon-button matTooltip = "Add College" matTooltipPosition = "right" matTooltipClass = "tooltip" (click) = "addCollege()" >
         <i class="fa fa-plus fa-2x" aria-hidden="true"  ></i>
     </button>
 
@@ -21,11 +21,11 @@
           <mat-card-content>
               <mat-list  role="list">
 
-                  <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
+                  <div  *ngFor = "let college of colleges ;  last as isLast " >
                       
                       <mat-list-item  role="listitem">
-                        <span matLine >Name: {{a}}</span>
-                        <span matLine >Head: Dave Suico</span>
+                        <span matLine >Name: Collge of {{college.name}}</span>
+                        <span matLine >Headed By: {{college.head}}</span>
                       </mat-list-item>
                       <mat-divider *ngIf = "!isLast" ></mat-divider>
                   </div>

@@ -21,6 +21,8 @@ import { YearLevelComponent } from './school-settings/year-level/year-level.comp
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { CollegeService } from './services/college.service';
+import { AddCollegeComponent } from './modals/add-college/add-college.component';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { AuthGuard } from './guards/auth.guard';
     RegistrarComponent,
     ComelecComponent,
     YearLevelComponent,
+    AddCollegeComponent,
 
 
 
@@ -55,7 +58,9 @@ import { AuthGuard } from './guards/auth.guard';
 
 
   ],
-  providers: [AuthService, AuthGuard],
+  entryComponents: [AddCollegeComponent],
+
+  providers: [AuthService, AuthGuard, CollegeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

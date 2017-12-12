@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { apiUrl } from '../interfaces/global';
+import { apiUrl, apiHeaders } from '../interfaces/global';
 import { } from '@angular/common/http/src/headers';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  headers = new HttpHeaders({
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  });
 
 
-  constructor(private http: HttpClient, private router: Router ) {
+
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -25,7 +21,7 @@ export class AuthService {
       password: password
     };
     return this.http.post(apiUrl + 'users/login', body, {
-      headers: this.headers,
+      headers: apiHeaders,
     });
   }
 
@@ -35,8 +31,12 @@ export class AuthService {
 
   }
 
-  checkToken() {
-    return localStorage.getItem('auth');
+  checkToken(): string | boolean {
+    const token = localStorage.getItem('auth');
+    if (token == null) {
+      return false;
+    }
+    return token;
   }
 
 }

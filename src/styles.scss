@@ -61,3 +61,11 @@ mat-toolbar{
 .mat-paginator{
     background: none !important;
 }
+
+.dialog-container{
+    padding:15px !important;
+}
+
+.mat-dialog-actions .mat-button+.mat-button, .mat-dialog-actions .mat-button+.mat-raised-button, .mat-dialog-actions .mat-raised-button+.mat-button, .mat-dialog-actions .mat-raised-button+.mat-raised-button {
+    margin: 0 !important;
+}

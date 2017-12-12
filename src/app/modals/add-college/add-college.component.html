@@ -1,0 +1,47 @@
+
+<div class="dialog-container" >
+  <h2 mat-dialog-title > 
+    New College
+  </h2>
+  
+  <form  #form = 'ngForm' (ngSubmit) = "addCollege(form)" >
+  
+    <mat-dialog-content>
+      <mat-form-field>
+        <input type="text" name="colName" maxlength="{{nameMxLength}} " minlength="{{nameMnLength}}" required #colLength #colName='ngModel' ngModel matInput placeholder="College Name" id="">
+        <mat-hint  >{{colLength.value.length}} / {{nameMxLength}}  </mat-hint>
+        <mat-error  *ngIf="colName.invalid" > 
+          <span *ngIf="colName.errors.required" >This is required!</span>
+        </mat-error>
+        
+        
+       
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input type="text" name="head" ngModel #headLength maxlength="{{headMxLength}}" minlength="{{headMnLength}}" #colHead='ngModel' matInput placeholder="College Head" id="">
+        <mat-hint  >{{headLength.value.length}} / {{headMxLength}}</mat-hint>
+        <mat-error  *ngIf="colHead.invalid" > 
+          <span *ngIf="colHead.errors.required" >This is required!</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+
+      <h5>
+        Output
+      </h5>
+      
+      <p>College of <b>{{form.value.colName | titlecase}}</b></p>
+      <p>Headed By: <b>{{form.value.head}}</b></p>
+      
+    </mat-dialog-content> 
+  
+    
+    <mat-dialog-actions fxLayout.gt-md="row" fxLayout= "column" fxLayoutGap="10px" fxLayoutAlign = "space-around" fxLayoutAlign.gt-md = "end">  
+      <button mat-raised-button color="primary" type="submit">Register College</button>
+      <button mat-button mat-dialog-close type="submit">Cancel</button>
+    </mat-dialog-actions>
+  
+  
+  </form>
+</div>
