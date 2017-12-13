@@ -23,7 +23,7 @@
 
                   <div  *ngFor = "let college of colleges ;  last as isLast " >
                       
-                      <mat-list-item  role="listitem">
+                      <mat-list-item  role="listitem" (click) = "showCollege(college)" >
                         <span matLine >Name: Collge of {{college.name}}</span>
                         <span matLine >Headed By: {{college.head}}</span>
                       </mat-list-item>
@@ -45,14 +45,14 @@
           <mat-card-content>
               <mat-list  role="list">
 
-                  <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
-                      
-                      <mat-list-item  role="listitem">
-                        <span matLine >Name: {{a}}</span>
-                        <span matLine >Head: {{a}}</span>
-                      </mat-list-item>
-                      <mat-divider *ngIf = "!isLast" ></mat-divider>
-                  </div>
+                    <div  *ngFor = "let college of deletedColleges ;  last as isLast " >
+                            
+                        <mat-list-item  role="listitem" (click) = "showDeletedCollege(college)" >
+                            <span matLine >Name: Collge of {{college.name}}</span>
+                            <span matLine >Headed By: {{college.head}}</span>
+                        </mat-list-item>
+                        <mat-divider *ngIf = "!isLast" ></mat-divider>
+                    </div>
                   
               </mat-list>
           </mat-card-content>

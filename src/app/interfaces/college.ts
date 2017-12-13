@@ -14,6 +14,7 @@ export interface College {
         timezone_type: string;
 
     };
+    deleted_at: string;
 
 
 

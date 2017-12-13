@@ -11,11 +11,11 @@ import { CollegeService } from '../../services/college.service';
 })
 export class AddCollegeComponent implements OnInit {
 
-  nameMxLength = 60;
-  nameMnLength = 3;
+  nameMxLength = this.collegeService.nameMxLength ;
+  nameMnLength = this.collegeService.nameMnLength ;
 
-  headMxLength = 20;
-  headMnLength = 2;
+  headMxLength = this.collegeService.headMxLength ;
+  headMnLength = this.collegeService.headMnLength ;
 
   onCollegeRegistered = new EventEmitter();
   onCollegeRegisterFail = new EventEmitter();

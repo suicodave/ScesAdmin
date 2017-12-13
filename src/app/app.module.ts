@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CollegeService } from './services/college.service';
 import { AddCollegeComponent } from './modals/add-college/add-college.component';
+import { ShowCollegeComponent } from './modals/show-college/show-college.component';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { AddCollegeComponent } from './modals/add-college/add-college.component'
     ComelecComponent,
     YearLevelComponent,
     AddCollegeComponent,
-
+    ShowCollegeComponent
 
 
 
@@ -58,7 +59,7 @@ import { AddCollegeComponent } from './modals/add-college/add-college.component'
 
 
   ],
-  entryComponents: [AddCollegeComponent],
+  entryComponents: [AddCollegeComponent, ShowCollegeComponent],
 
   providers: [AuthService, AuthGuard, CollegeService],
   bootstrap: [AppComponent]

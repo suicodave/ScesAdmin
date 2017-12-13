@@ -20,10 +20,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    const token: string | boolean = this.authService.checkToken();
+    const token: any = this.authService.checkToken();
 
     if (!token) {
-      this.router.navigate(['auth'], {queryParams: {lastVisit: state.url } } );
+      this.router.navigate(['auth'], { queryParams: { lastVisit: state.url } });
       return token;
     }
 
