@@ -24,6 +24,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { CollegeService } from './services/college.service';
 import { AddCollegeComponent } from './modals/add-college/add-college.component';
 import { ShowCollegeComponent } from './modals/show-college/show-college.component';
+import { YearLevelService } from './services/year-level.service';
+import { ShowYearLevelComponent } from './modals/show-year-level/show-year-level.component';
+import { AddYearLevelComponent } from './modals/add-year-level/add-year-level.component';
 
 
 @NgModule({
@@ -41,7 +44,9 @@ import { ShowCollegeComponent } from './modals/show-college/show-college.compone
     ComelecComponent,
     YearLevelComponent,
     AddCollegeComponent,
-    ShowCollegeComponent
+    ShowCollegeComponent,
+    ShowYearLevelComponent,
+    AddYearLevelComponent
 
 
 
@@ -59,9 +64,9 @@ import { ShowCollegeComponent } from './modals/show-college/show-college.compone
 
 
   ],
-  entryComponents: [AddCollegeComponent, ShowCollegeComponent],
+  entryComponents: [AddCollegeComponent, ShowCollegeComponent, ShowYearLevelComponent, AddYearLevelComponent],
 
-  providers: [AuthService, AuthGuard, CollegeService],
+  providers: [AuthService, AuthGuard, CollegeService, YearLevelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

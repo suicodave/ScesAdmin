@@ -4,7 +4,7 @@
     </p>
 
  
-    <button mat-icon-button matTooltip = "Add Year Level" matTooltipPosition = "right" matTooltipClass = "tooltip" >
+    <button mat-icon-button matTooltip = "Add Year Level" (click)="addYearLevel()" matTooltipPosition = "right" matTooltipClass = "tooltip" >
         <i class="fa fa-plus fa-2x" aria-hidden="true"  ></i>
     </button>
 
@@ -21,11 +21,12 @@
           <mat-card-content>
               <mat-list  role="list">
 
-                  <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
+                  <div  *ngFor = "let yearLevel of yearLevels ;  last as isLast " >
                       
-                      <mat-list-item  role="listitem">
-                        <span matLine >Name: {{a}}</span>
-                        <span matLine >Head: Dave Suico</span>
+                      <mat-list-item  role="listitem" (click) = "showYearLevel(yearLevel)" >
+                        <span matLine >Name: {{yearLevel.name}}</span>
+                        <span matLine >Department: {{yearLevel.department.name}}</span>
+                        
                       </mat-list-item>
                       <mat-divider *ngIf = "!isLast" ></mat-divider>
                   </div>
@@ -45,11 +46,11 @@
           <mat-card-content>
               <mat-list  role="list">
 
-                  <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
+                  <div  *ngFor = "let deletedYearLevel of deletedYearLevels ;  last as isLast " >
                       
-                      <mat-list-item  role="listitem">
-                        <span matLine >Name: {{a}}</span>
-                        <span matLine >Head: {{a}}</span>
+                      <mat-list-item  role="listitem" (click)="showDeletedYearLevel(deletedYearLevel)" >
+                        <span matLine >Name: {{deletedYearLevel.name}}</span>
+                        <span matLine >Department: {{deletedYearLevel.department.name}}</span>
                       </mat-list-item>
                       <mat-divider *ngIf = "!isLast" ></mat-divider>
                   </div>

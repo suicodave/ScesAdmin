@@ -1,0 +1,38 @@
+
+
+
+
+<div class="dialog-container">
+  <p mat-dialog-title >New Year Level</p>
+  
+  <form action="" #form="ngForm" (ngSubmit)="addYearLevel(form,form.value.name,form.value.department)" >
+    
+    <mat-dialog-content>
+      <mat-form-field>
+          <input type="text" #el name="name" [maxlength]="nameMxLength" ngModel matInput required placeholder="Year Level's Name" #name="ngModel" >
+          <mat-hint> {{el.value.length}} / {{nameMxLength}} </mat-hint>
+          <mat-error *ngIf="name.invalid" >
+            <span *ngIf="name.errors.required" >This is required!</span>
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-select placeholder="Departments" ngModel name="department" required #dep="ngModel" >
+            <mat-option>Select One</mat-option>
+            <mat-option *ngFor="let department of departments" [value]="department.id">
+              {{ department.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="dep.invalid" >
+            <span *ngIf="dep.errors.required">This is required!</span>
+          </mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions fxLayout.gt-md="row" fxLayout= "column" fxLayoutGap="10px" fxLayoutAlign = "space-around" fxLayoutAlign.gt-md = "end">  
+      <button mat-raised-button color="primary" type="submit">Register Year Level</button>
+      <button mat-button mat-dialog-close type="submit">Cancel</button>
+    </mat-dialog-actions>
+    
+  </form>
+</div>
