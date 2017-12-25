@@ -50,17 +50,17 @@
  
   <mat-dialog-actions *ngIf="isEditMode" fxLayout.gt-md="row" fxLayout= "column" fxLayoutGap="10px" fxLayoutAlign = "space-around" fxLayoutAlign.gt-md = "end">
     <button mat-raised-button color="primary" type="submit">Update College</button>
-    <button mat-button mat-dialog-close type="submit">Cancel</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
   </mat-dialog-actions>
 
   <mat-dialog-actions *ngIf="isDeleteMode" fxLayout.gt-md="row" fxLayout= "column" fxLayoutGap="10px" fxLayoutAlign = "space-around" fxLayoutAlign.gt-md = "end">
     <button mat-raised-button color="warn" type="button" (click) ="deleteCollege(college)"  >Delete College</button>
-    <button mat-button mat-dialog-close type="submit">Cancel</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
   </mat-dialog-actions>
 
   <mat-dialog-actions *ngIf="showDeleted" fxLayout.gt-md="row" fxLayout= "column" fxLayoutGap="10px" fxLayoutAlign = "space-around" fxLayoutAlign.gt-md = "end">
     <button mat-raised-button color="primary" type="button" (click) ="restoreCollege(college)" >Restore College</button>
-    <button mat-button mat-dialog-close type="submit">Cancel</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
   </mat-dialog-actions>
     
 

@@ -1,56 +1,54 @@
-
-
 <mat-sidenav-container>
-    
-  <mat-sidenav #sidenav mode = "over"  >
-   
-    <ul  >
+
+  <mat-sidenav #sidenav mode="over">
+
+    <ul>
       <li>
         SCES v2
       </li>
-      <a routerLink="/home" tabindex="-1" routerLinkActive = "active" (click)="sidenav.close()" >
+      <a routerLink="/home" tabindex="-1" routerLinkActive="active" (click)="sidenav.close()">
         <li>
           Home
         </li>
       </a>
-      
-      <a routerLink = "/school_settings" tabindex="-1"  routerLinkActive = "active" (click)="sidenav.close()" >
+
+      <a routerLink="/school_settings" tabindex="-1" routerLinkActive="active" (click)="sidenav.close()">
         <li>
           School Settings
         </li>
       </a>
 
-      <a routerLink = "/administrators" tabindex="-1"  routerLinkActive = "active" (click)="sidenav.close()" >
+      <a routerLink="/administrators" tabindex="-1" routerLinkActive="active" (click)="sidenav.close()">
         <li>
           Administrators
         </li>
       </a>
-      
+
     </ul>
   </mat-sidenav>
 
   <mat-sidenav-content>
 
-    <mat-toolbar color = "primary" >
-        
-      <button mat-icon-button tabindex="-1" (click)="sidenav.toggle()"  >
+    <mat-toolbar color="primary">
+
+      <button mat-icon-button tabindex="-1" (click)="sidenav.toggle()">
         <i class="fa fa-bars " aria-hidden="true"></i>
       </button>
       <div class="spacer"></div>
-      <button mat-mini-fab class="user-menu-btn" tabindex="-1" [matMenuTriggerFor]="menu"  >
+      <button mat-mini-fab class="user-menu-btn" tabindex="-1" [matMenuTriggerFor]="menu">
         D
       </button>
       <mat-menu #menu="matMenu">
-          <button mat-menu-item>Profile</button>
-          <button mat-menu-item (click)= "signOut()" >Sign Out</button>
-        </mat-menu>
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item (click)="signOut()">Sign Out</button>
+      </mat-menu>
     </mat-toolbar>
-    
+
     <div class="index-container">
       <router-outlet>
       </router-outlet>
     </div>
-    
+
 
   </mat-sidenav-content>
 

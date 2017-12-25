@@ -1,0 +1,78 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <p mat-dialog-title>
+    Year Level Profile
+  </p>
+  <div *ngIf="!showDeleted">
+    <mat-checkbox *ngIf="!isDeleteMode" (change)="editMode($event)">Edit Mode</mat-checkbox>
+    <mat-checkbox color="warn" *ngIf="!isEditMode && !schoolYear.is_active " (change)="deleteMode($event)">Delete</mat-checkbox>
+  </div>
+
+
+
+</div>
+<form action="" #form="ngForm" (ngSubmit)="updateSchoolYear(form,form.value.name,schoolYear.id)">
+  <mat-dialog-content>
+    <div *ngIf="!isEditMode">
+      <p>Year:
+        <b>{{schoolYear.name}}</b>
+      </p>
+      <p>
+        Is Active:
+        <b *ngIf="schoolYear.is_active == 0" >No</b>
+        <b *ngIf="schoolYear.is_active == 1" >Yes</b>
+      </p>
+      <p>Created At:
+        <b>{{schoolYear.created_at.date | date:'mediumDate' }}</b>
+      </p>
+      <p>Updated At:
+        <b>{{schoolYear.updated_at.date | date:'mediumDate' }}</b>
+      </p>
+      <p *ngIf="schoolYear.deleted_at != null ">Deleted At:
+        <b>{{schoolYear.deleted_at.date | date:'mediumDate' }}</b>
+      </p>
+
+      
+
+    </div>
+    
+    <div *ngIf="isEditMode">
+      <mat-form-field>
+        <input matInput type="text" #name="ngModel"  minlength="{{nameMxLength}}"  (keypress)="checkInput($event)" required #nameLength maxlength="{{nameMxLength}}" name="name" ngModel [(ngModel)]="editName"
+          placeholder="Base">
+        <mat-hint>{{nameLength.value.length}} / {{nameMxLength}} </mat-hint>
+        <mat-error *ngIf="name.invalid">
+          <span *ngIf="name.errors.required">This is required!</span>
+        </mat-error>
+        
+      </mat-form-field>
+      <br>
+
+      Output:  {{form.value.name}} - {{outputName}}
+
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions *ngIf="isEditMode" fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+    fxLayoutAlign.gt-md="end">
+    <button mat-raised-button color="primary" type="submit">Update School Year</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
+  </mat-dialog-actions>
+
+  <mat-dialog-actions *ngIf="isDeleteMode" fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+    fxLayoutAlign.gt-md="end">
+    <button mat-raised-button color="warn" type="button" (click)="deleteSchoolYear(schoolYear)">Delete College</button>
+    <button mat-button mat-dialog-close type="submit">Cancel</button>
+  </mat-dialog-actions>
+
+  <mat-dialog-actions *ngIf="showDeleted" fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+    fxLayoutAlign.gt-md="end">
+    <button mat-raised-button color="primary" type="button" (click)="restoreSchoolYear(schoolYear)">Restore College</button>
+    <button mat-button mat-dialog-close type="submit">Cancel</button>
+  </mat-dialog-actions>
+
+  <mat-dialog-actions *ngIf="!showDeleted && !isDeleteMode && !isEditMode && !schoolYear.is_active " fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+  fxLayoutAlign.gt-md="end" >
+    <button mat-raised-button  type="button" color="primary" (click)="setActiveSchoolYear(schoolYear)"  >Set Active</button>
+  </mat-dialog-actions>
+
+</form>

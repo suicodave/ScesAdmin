@@ -4,7 +4,7 @@
     </p>
 
  
-    <button mat-icon-button matTooltip = "Add School Year" matTooltipPosition = "right" matTooltipClass = "tooltip" >
+    <button mat-icon-button (click)="addSchoolYear()" matTooltip = "Add School Year" matTooltipPosition = "right" matTooltipClass = "tooltip" >
         <i class="fa fa-plus fa-2x" aria-hidden="true"  ></i>
     </button>
 
@@ -15,10 +15,14 @@
         
         <mat-card fxFlex = "30%"  >
             <mat-card-header>
-                Current School Year
+                Active School Year
             </mat-card-header>
-            <mat-card-content class = "currentSY" >
-                2017-2018
+            <mat-card-content class = "currentSY" fxLayout='row' fxLayoutAlign="space-around center" >
+                <mat-spinner *ngIf="!currentSchoolYearHasLoaded" strokeWidth="5" ></mat-spinner>
+                <div *ngIf="currentSchoolYearHasLoaded" >
+                    {{activeSchoolYear.name}}
+                </div>
+                
             </mat-card-content>
         </mat-card>
 
@@ -29,10 +33,10 @@
             <mat-card-content>
                 <mat-list  role="list">
 
-                    <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
+                    <div  *ngFor = "let schoolYear of schoolYears ;  last as isLast " >
                         
-                        <mat-list-item  role="listitem">
-                          <p matLine >Item {{a}}</p>
+                        <mat-list-item  role="listitem" (click)="showSchoolYear(schoolYear)">
+                          <p>{{schoolYear.name}}</p>
                         </mat-list-item>
                         <mat-divider *ngIf = "!isLast" ></mat-divider>
                     </div>
@@ -52,9 +56,11 @@
             <mat-card-content>
                 <mat-list  role="list">
 
-                    <div  *ngFor = "let a of [1,2,3,4,5] ;  last as isLast " >
+                    <div  *ngFor = "let deletedSchoolYear of deletedSchoolYears ;  last as isLast " >
                         
-                        <mat-list-item  role="listitem">Item {{a}}</mat-list-item>
+                        <mat-list-item  role="listitem" (click)="showDeletedSchoolYear(deletedSchoolYear)">
+                          <p>{{deletedSchoolYear.name}}</p>
+                        </mat-list-item>
                         <mat-divider *ngIf = "!isLast" ></mat-divider>
                     </div>
                     
