@@ -1,0 +1,119 @@
+<div class="dialog-container">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <p mat-dialog-title *ngIf="!isToAdd">
+      Registrar Profile
+    </p>
+    <p mat-dialog-title *ngIf="isToAdd">
+      New Registrar
+    </p>
+    <div *ngIf="!isDeleted && !isToAdd ">
+      <mat-checkbox color="warn" *ngIf="!isEditMode " (change)="deleteMode($event)">Deactivate</mat-checkbox>
+    </div>
+
+
+
+  </div>
+  <mat-dialog-content *ngIf="!isToAdd">
+    <div *ngIf="!isEditMode">
+      <p>Full Name:
+        <b>{{registrar.last_name}}, &nbsp; {{registrar.first_name}} &nbsp; {{registrar.middle_name}}</b>
+      </p>
+      <p>
+        Email:
+        <b>{{registrar.email}}</b>
+      </p>
+      <p>Created At:
+        <b>{{registrar.created_at.date | date:'mediumDate' }}</b>
+      </p>
+      <p>Updated At:
+        <b>{{registrar.updated_at.date | date:'mediumDate' }}</b>
+      </p>
+      <p *ngIf="registrar.deleted_at != null ">Deleted At:
+        <b>{{registrar.deleted_at | date:'mediumDate' }}</b>
+      </p>
+      <p>
+        Created By:
+        <b>{{registrar.processed_by?.name }}</b>
+      </p>
+
+
+    </div>
+
+
+  </mat-dialog-content>
+
+  <form #form='ngForm' *ngIf="isToAdd" (ngSubmit)="registerRegistrar(form)">
+
+    <mat-dialog-content>
+      <mat-form-field>
+        <input type="text" name="first_name" maxlength="{{fnameMxLength}} " required #fLength #fName='ngModel' ngModel matInput placeholder="First Name"
+          id="">
+        <mat-hint>{{fLength.value.length}} / {{fnameMxLength}} </mat-hint>
+        <mat-error *ngIf="fName.invalid">
+          <span *ngIf="fName.errors.required">This is required!</span>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input type="text" name="middle_name" maxlength="{{fnameMxLength}} " required #mLength #mName='ngModel' ngModel matInput
+          placeholder="Middle Name" id="">
+        <mat-hint>{{mLength.value.length}} / {{fnameMxLength}} </mat-hint>
+        <mat-error *ngIf="mName.invalid">
+          <span *ngIf="mName.errors.required">This is required!</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" name="last_name" maxlength="{{fnameMxLength}} " required #lLength #lName='ngModel' ngModel matInput placeholder="Last Name"
+          id="">
+        <mat-hint>{{lLength.value.length}} / {{fnameMxLength}} </mat-hint>
+        <mat-error *ngIf="lName.invalid">
+          <span *ngIf="lName.errors.required">This is required!</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="email" name="email" required #email='ngModel' ngModel matInput placeholder="Email" email="true" >
+        <mat-error *ngIf="email.invalid">
+          Invalid Email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" name="password" maxlength="{{passwordMxLength}} " required #pLength #password='ngModel' ngModel matInput placeholder="Password"
+          id="">
+        <mat-hint>{{pLength.value.length}} / {{passwordMxLength}} </mat-hint>
+        <mat-error *ngIf="password.invalid">
+          <span *ngIf="password.errors.required">This is required!</span>
+        </mat-error>
+      </mat-form-field>
+
+
+
+
+    </mat-dialog-content>
+
+
+    <mat-dialog-actions fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around" fxLayoutAlign.gt-md="end">
+      <button mat-raised-button color="primary" type="submit">Register College</button>
+      <button mat-button mat-dialog-close type="submit">Cancel</button>
+    </mat-dialog-actions>
+
+
+  </form>
+
+
+
+  <mat-dialog-actions *ngIf="isDeleteMode" fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+    fxLayoutAlign.gt-md="end">
+    <button mat-raised-button color="warn" type="button" mat-dialog-close (click)="deactivateRegistrar(registrar)">Deactivate Registrar</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
+  </mat-dialog-actions>
+
+  <mat-dialog-actions *ngIf="isDeleted" fxLayout.gt-md="row" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around"
+    fxLayoutAlign.gt-md="end">
+    <button mat-raised-button color="primary" mat-dialog-close type="button" (click)="restoreRegistrar(registrar)">Restore Registrar</button>
+    <button mat-button mat-dialog-close type="button">Cancel</button>
+  </mat-dialog-actions>
+</div>

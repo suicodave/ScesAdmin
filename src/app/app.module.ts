@@ -30,6 +30,8 @@ import { AddYearLevelComponent } from './modals/add-year-level/add-year-level.co
 import { SchoolYearService } from './services/school-year.service';
 import { ShowSchoolYearComponent } from './modals/show-school-year/show-school-year.component';
 import { AddSchoolYearComponent } from './modals/add-school-year/add-school-year.component';
+import { RegistrarService } from './services/registrar.service';
+import { ShowRegistrarComponent } from './modals/show-registrar/show-registrar.component';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { AddSchoolYearComponent } from './modals/add-school-year/add-school-year
     ShowYearLevelComponent,
     AddYearLevelComponent,
     ShowSchoolYearComponent,
-    AddSchoolYearComponent
+    AddSchoolYearComponent,
+    ShowRegistrarComponent
 
 
 
@@ -69,9 +72,9 @@ import { AddSchoolYearComponent } from './modals/add-school-year/add-school-year
 
 
   ],
-  entryComponents: [AddCollegeComponent, ShowCollegeComponent, ShowYearLevelComponent, AddYearLevelComponent, ShowSchoolYearComponent, AddSchoolYearComponent],
+  entryComponents: [AddCollegeComponent, ShowCollegeComponent, ShowYearLevelComponent, AddYearLevelComponent, ShowSchoolYearComponent, AddSchoolYearComponent ,ShowRegistrarComponent ],
 
-  providers: [AuthService, AuthGuard, CollegeService, YearLevelService, SchoolYearService],
+  providers: [AuthService, AuthGuard, CollegeService, YearLevelService, SchoolYearService, RegistrarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
