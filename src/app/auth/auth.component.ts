@@ -18,23 +18,10 @@ export class AuthComponent implements OnInit {
   redirectTo = '';
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService, private snackBar: MatSnackBar) {
 
-    this.route.queryParams
-      .filter(params => params.lastVisit)
-      .subscribe(
-        (params) => {
-          this.redirectTo = params.lastVisit;
-        }
-      );
-
-    const token = this.authService.checkToken();
-    if (token != null) {
-
-      this.router.navigate([this.redirectTo]);
-    }
-
   }
 
   ngOnInit() {
+
   }
 
   authenticate(form: NgForm, isEmailInvalid) {
@@ -60,6 +47,14 @@ export class AuthComponent implements OnInit {
 
       );
 
+  }
+
+  redirectIfLoggedIn() {
+    const token = this.authService.checkToken();
+    if (token != false) {
+
+      this.router.navigate(['']);
+    }
   }
 
 }

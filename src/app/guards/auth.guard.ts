@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     const token: any = this.authService.checkToken();
 
-    if (!token) {
+    if (token == false) {
       this.router.navigate(['auth'], { queryParams: { lastVisit: state.url } });
       return token;
     }
