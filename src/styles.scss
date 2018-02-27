@@ -95,3 +95,8 @@ mat-sidenav{
 ::-webkit-scrollbar-thumb {
     background-color: rgb(54, 54, 54)  ;
 }
+
+mat-sidenav-container{
+    height: 100vh;
+    width: 100%;
+}

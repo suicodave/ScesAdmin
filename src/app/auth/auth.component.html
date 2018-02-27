@@ -1,14 +1,21 @@
+<mat-sidenav-container>
+    <mat-sidenav-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <p>
+            SCES Admin
+        </p>
+        <form #form="ngForm" (ngSubmit)="authenticate(form,validateEmail.invalid)" fxLayout="column" fxLayoutAlign="center center"
+            fxLayoutGap="15px">
+            <mat-form-field>
+                <input matInput type="email" ngModel name="email" #validateEmail="ngModel" placeholder="Email" email="true" id="">
+                <mat-error *ngIf="validateEmail.invalid">Invalid Email</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" name="password" placeholder="Password" ngModel id="">
+            </mat-form-field>
 
-<form #form="ngForm" (ngSubmit)="authenticate(form,validateEmail.invalid)" >
-    <mat-form-field>
-        <input matInput type="email" ngModel name="email" #validateEmail="ngModel"  placeholder="Email" email="true"  id="">
-        <mat-error *ngIf = "validateEmail.invalid"  >Invalid Email</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput type="password" name="password" placeholder="Password" ngModel id="">
-    </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Sign In</button>
 
-    <button mat-raised-button color = "primary" type="submit" >Sign In</button>
+        </form>
 
-</form>
-
+    </mat-sidenav-content>
+</mat-sidenav-container>
