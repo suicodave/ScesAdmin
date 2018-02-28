@@ -3,7 +3,7 @@
         <p>
             SCES Admin
         </p>
-        <form #form="ngForm" (ngSubmit)="authenticate(form,validateEmail.invalid)" fxLayout="column" fxLayoutAlign="center center"
+        <form #form="ngForm" *ngIf="!isLogging" (ngSubmit)="authenticate(form,validateEmail.invalid)" fxLayout="column" fxLayoutAlign="center center"
             fxLayoutGap="15px">
             <mat-form-field>
                 <input matInput type="email" ngModel name="email" #validateEmail="ngModel" placeholder="Email" email="true" id="">
@@ -16,6 +16,10 @@
             <button mat-raised-button color="primary" type="submit">Sign In</button>
 
         </form>
+        <div fxLayout="column" *ngIf="isLogging" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <mat-spinner diameter="35" strokeWidth="4" ></mat-spinner>
+            <p>Signing In...</p>
+        </div>
 
     </mat-sidenav-content>
 </mat-sidenav-container>
