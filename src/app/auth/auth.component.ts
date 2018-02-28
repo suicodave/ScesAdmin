@@ -14,7 +14,7 @@ import 'rxjs/add/operator/filter';
   encapsulation: ViewEncapsulation.None
 })
 export class AuthComponent implements OnInit {
-
+  isLogging = false;
   redirectTo = '';
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService, private snackBar: MatSnackBar) {
 
@@ -30,6 +30,7 @@ export class AuthComponent implements OnInit {
 
       return false;
     }
+    this.isLogging = true;
 
     this.authService.signIn(form.value.email, form.value.password)
       .subscribe(
@@ -42,6 +43,8 @@ export class AuthComponent implements OnInit {
         this.snackBar.open(error.error.message, 'Okay', {
           duration: 5000
         });
+
+        this.isLogging = false;
 
       }
 
